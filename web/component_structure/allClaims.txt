@@ -1,0 +1,8 @@
+Route
+  Sider
+    AllClaims
+      header
+      ClaimsList
+  Content
+    header
+    Details
