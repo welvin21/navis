@@ -12,7 +12,6 @@ class AppBar extends React.Component {
   };
 
   onCollapse = collapsed => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
 
@@ -65,20 +64,30 @@ class AppBar extends React.Component {
             </Menu.Item>
           </Menu>
         </Sider>
+        {
+          //conten on the right
+        }
         <Layout>
           <Header style={{ background: "#fff", padding: 0 }} />
-          <Content style={{ margin: "0 16px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
-              Bill is a cat.
-            </div>
+          <Content style={{ padding: "0 20px", marginTop: "20px" }}>
+            <Layout style={{ padding: "24px 0", background: "#fff" }}>
+              <Sider width={400} style={{ background: "#fff" }}>
+                <Menu
+                  mode="inline"
+                  defaultSelectedKeys={["1"]}
+                  defaultOpenKeys={["sub1"]}
+                  style={{ height: "100%" }}
+                >
+                  {
+                    //Add the components here
+                  }
+                </Menu>
+              </Sider>
+              <Content style={{ padding: "0 24px", height: "540px" }}>
+                Content
+              </Content>
+            </Layout>
           </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2018 Created by Ant UED
-          </Footer>
         </Layout>
       </Layout>
     );
