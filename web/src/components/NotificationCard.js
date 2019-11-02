@@ -2,11 +2,11 @@ import  React from 'react';
 import { Card, Tag } from 'antd';
 
 const NotificationCard = (props) => {
-    const { title, docs, onClick } = props;
+    const { title, docs, isUrgent, onClick } = props;
     return(
         <Card hoverable={true} 
             size="small" 
-            extra={<Tag color="red">Urgent</Tag>} 
+            extra={isUrgent ? <Tag color="red">Urgent</Tag> : <Tag color="green">Submitted</Tag>} 
             title={title} 
             style={{ width: "100%" }}
             onClick={onClick}>

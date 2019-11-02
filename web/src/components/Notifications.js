@@ -11,56 +11,38 @@ import {
   Form,
   Upload,
   Button,
-  Input
+  Input,
+  notification
 } from "antd";
 import TransactionsList from "./TransactionsList";
 import NotificationCard from "./NotificationCard";
 import NotificationDisplay from "./NotificationDisplay";
-import ShipSelect from "./ShipSelect";
 
 const { Content, Sider } = Layout;
 const { Title, Text } = Typography;
 const { TextArea } = Input;
 
-const initialData = () => {
-  return <ShipSelect text="Select a notification." />;
-};
-
-const setDisplayData = (title, docs) => {
-  return (
-    <div>
-      <Row>
-        <Col span={22}>
-          <Title level={3}>Transaction {title}</Title>
-        </Col>
-        <Col span={2}>
-          <Tag color="red">Urgent</Tag>
-        </Col>
-      </Row>
-      <Title level={4}>HKECIC is Requesting the following documents: </Title>
-      <Form>
-        {docs.map(item => {
-          return (
-            <Form.Item colon={false} label={<Tag color="cyan">{item}</Tag>}>
-              <Upload>
-                <Button>
-                  <Icon type="upload" /> Upload
-                </Button>
-              </Upload>
-            </Form.Item>
-          );
-        })}
-        <Form.Item label="Additional Notes">
-          <TextArea rows={4} />
-        </Form.Item>
-        <Button type="primary">Submit</Button>
-      </Form>
-    </div>
+const openNotification = () => {
+  const key = `open${Date.now()}`;
+  const btn = (
+    <Button type="primary" size="small" onClick={() => notification.close(key)}>
+      Confirm
+    </Button>
   );
+  notification.open({
+    message: 'Your documents have been submitted',
+    description:
+      // document.getElementById
+      'Thank you for submitting the requested documents. We will get back to you shortly',
+    btn,
+    key,
+    onClose: ()=>{},
+  });
 };
 
 const Notifications = () => {
-  const [notificationDisplay, setNotificationDisplay] = useState(initialData);
+  const [notificationDisplay, setNotificationDisplay] = useState(false);
+  const [isUrgent, setUrgent] = useState(true);
   return (
     <Layout style={{ padding: "24px 0", background: "#fff" }}>
       <Sider width={400} style={{ background: "#fff" }}>
@@ -73,19 +55,26 @@ const Notifications = () => {
           <div style={{ margin: "auto 20px" }}>
             <Title>Notifications</Title>
             <NotificationCard
-              title="ID #3450A"
+              title="ID #ZwoFpRiRiL"
               docs={["invoice", "bill of lading"]}
               onClick={() => {
-                setNotificationDisplay(
-                  setDisplayData("ID #3450A", ["invoice", "bill of lading"])
-                );
+                setNotificationDisplay(true);
               }}
+              isUrgent={isUrgent}
             />
           </div>
         </Menu>
       </Sider>
       <Content style={{ padding: "0 24px", height: "540px" }}>
-        <NotificationDisplay data={notificationDisplay} />
+        <NotificationDisplay 
+          isLoaded={notificationDisplay} 
+          data={{title : 'ID #ZwoFpRiRiL', docs : ["invoice", "bill of lading"]}} 
+          isUrgent={isUrgent}
+          onClick={()=>{
+            setUrgent(false);
+            openNotification();
+          }}
+        />
       </Content>
     </Layout>
   );
