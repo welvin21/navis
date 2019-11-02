@@ -1,9 +1,13 @@
 import React,{ useState } from 'react';
-import { Card, Timeline, Row, Col } from "antd";
+import { Card, Timeline, Row, Col, Tag } from "antd";
 
 const style = {
+    container : {
+        display : 'grid',
+        gridTemplateColumns : '70% 30%',
+    },
     card : {
-        border : 10
+        borderRadius : 10
     }
 }
 
@@ -16,19 +20,35 @@ const ClaimCard = (props) => {
         hoverable
         style={style.card}
         >
-            <Timeline>
-                <Timeline.Item>Hong Kong</Timeline.Item>
-                <Timeline.Item>United States</Timeline.Item>
-            </Timeline>
-
+            <div style={style.container}>
+                <Timeline>
+                    <Timeline.Item>Hong Kong</Timeline.Item>
+                    <Timeline.Item>United States</Timeline.Item>
+                </Timeline>
+                <Tag color='magenta' style={{height : 20,width : 'auto'}}>
+                    {data.goods}
+                </Tag>
+            </div>
             <Row>
-                <Col span={5}>Seller</Col>
-                <Col span={2}>{data.sellerName}</Col>
+                <Col span={8}><b>Seller</b></Col>
+                <Col span={16}>{data.sellerName}</Col>
             </Row>
             <Row>
-                <Col span={5}>Buyer</Col>
-                <Col span={2}>{data.buyerName}</Col>
-            </Row>           
+                <Col span={8}><b>Buyer</b></Col>
+                <Col span={16}>{data.buyerName}</Col>
+            </Row>    
+            <Row>
+                <Col span={8}><b>Contract No.</b></Col>
+                <Col span={16}>{data.contractNumber}</Col>
+            </Row>    
+            <Row>
+                <Col span={8}><b>Document No.</b></Col>
+                <Col span={16}>{data.documentNumber}</Col>
+            </Row>    
+            <Row>
+                <Col span={8}><b>Invoice No.</b></Col>
+                <Col span={16}>{data.invoiceNumber}</Col>
+            </Row>      
         </Card>
     );
 
