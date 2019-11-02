@@ -13,8 +13,9 @@ const style={
     }
 }
 
+
 const Documents = (props) => {
-    const { visible,onModalClick } = props;
+    const { visible,onModalClick,docId } = props;
     return(
         <Modal
             title="Relevant Documents"
