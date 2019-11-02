@@ -1,10 +1,11 @@
 import React,{ useState } from 'react';
-import { Timeline, Icon, Row, Col } from 'antd';
+import { Timeline, Icon, Row, Col, Typography } from 'antd';
 import Documents from './Documents';
 import Stats from './Stats';
-// import Charts from './Charts';
+import Charts from './Charts';
 // import { FirebaseStorage as storage } from '../constants/firebase';
 
+const { Title } = Typography;
 const style = {
     container : {
         border : '0.5px solid #D8D8D8',
@@ -21,7 +22,7 @@ const style = {
         gridArea : 'timeline'
     },
     stats : {
-        gridArea : 'stats'
+        gridArea : 'stats',
     },
     document : {
         color : 'blue',
@@ -32,9 +33,16 @@ const style = {
         gridTemplateAreas : 
         `
             'timeline stats'
-            'timeline stats'
-            'charts charts'
+            'timeline charts'
+            'timeline charts'
+            'timeline charts'
+            'timeline charts'
+            'timeline charts'
+            'timeline charts'
         `
+    },
+    charts : {
+        gridArea : 'charts'
     }
 }
 
@@ -42,7 +50,7 @@ const TransactionDetails = (props) => {
     const { data } = props;
     const [visible,onModalClick] = useState(false);
     if(data === undefined){
-        return (<div></div>);
+        return (<div><Title level={2}>Please select a transaction.</Title></div>);
     }else{
         return(
             <div>
@@ -50,13 +58,28 @@ const TransactionDetails = (props) => {
                 <div style={style.details}>
                     <Timeline style={style.timeline}>
                         <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
+                            {data.sellerSendDeliverables}<br/>
+                            {`${data.sellerName} send goods to shipping company`}<br/>
+                            <p onClick={()=>onModalClick(true)} style={style.document}>documents</p>
+                        </Timeline.Item>
+                        <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
+                            {data.buyerConfirmContracts}<br/>
+                            {`${data.buyerName} confirms contracts and documents`}<br/>
+                            <p onClick={()=>onModalClick(true)} style={style.document}>documents</p>
+                        </Timeline.Item>
+                        <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
+                            {data.bankPurchaseReceivables}<br/>
+                            Purchased debt<br/>
+                            <p onClick={()=>onModalClick(true)} style={style.document}>documents</p>
+                        </Timeline.Item>
+                        <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
                             {data.shipmentDate}<br/>
                             Shipment date<br/>
                             <p onClick={()=>onModalClick(true)} style={style.document}>documents</p>
                         </Timeline.Item>
                         <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
-                            3 Jan 2020<br/>
-                            Goods arrived<br/>
+                            {data.goodsReceived}<br/>
+                            Scheduled Goods arrived<br/>
                             <p onClick={()=>onModalClick(true)} style={style.document}>documents</p>
                         </Timeline.Item>
                         <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
@@ -71,8 +94,11 @@ const TransactionDetails = (props) => {
                         </Timeline.Item>
                     </Timeline>
                     <Stats style={{gridArea : 'stats'}}/>
-                    {/* <Charts style={{gridArea : 'charts'}}/> */}
-                    
+                    <div style={style.charts}>
+                        <h2>Transaction progress</h2>
+                        <br/>
+                        <Charts progress={82}/>
+                    </div>                    
                 </div>
             </div>
             

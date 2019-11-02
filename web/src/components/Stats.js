@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Statistic, Card, Row, Col, Icon } from 'antd';
 
 const Stats = (props) => {
@@ -8,8 +8,8 @@ const Stats = (props) => {
             <Col span={12}>
                 <Card>
                 <Statistic
-                    title="Acc. Receivables"
-                    value={11.28}
+                    title="Receivables"
+                    value={8.11}
                     precision={2}
                     valueStyle={{ color: '#3f8600' }}
                     prefix={<Icon type="arrow-up" />}
@@ -21,7 +21,7 @@ const Stats = (props) => {
                 <Card>
                 <Statistic
                     title="Interest Rate"
-                    value={9.3}
+                    value={7.72}
                     precision={2}
                     valueStyle={{ color: '#cf1322' }}
                     prefix={<Icon type="arrow-down" />}

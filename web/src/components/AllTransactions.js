@@ -52,7 +52,7 @@ const AllTransactions = () => {
           </div>
         </Menu>
       </Sider>
-      <Content style={{ padding: "0 24px", height: "540px" }}>
+      <Content style={{ padding: "0 24px", height: "740px" }}>
         {<TransactionDetails data={data} />}
       </Content>
     </Layout>
