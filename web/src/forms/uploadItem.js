@@ -57,7 +57,6 @@ class UploadItem extends Component {
 
     return (
       <div>
-        <Text style={{ justifyContent: "center" }}>{docType}</Text>
         <Form.Item>
           <Upload
             name="avatar"
@@ -78,6 +77,15 @@ class UploadItem extends Component {
             }
           </Upload>
         </Form.Item>
+        <Text
+          style={{
+            justifyContent: "center",
+            position: "relative",
+            top: "-32px"
+          }}
+        >
+          {docType}
+        </Text>
       </div>
     );
   }

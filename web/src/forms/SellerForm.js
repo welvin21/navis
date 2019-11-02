@@ -4,6 +4,7 @@ import { Form, Button, AutoComplete, Typography } from "antd";
 import UploadItem from "./uploadItem";
 import { uploadFile } from "../storage/uploadFile";
 import { FirebaseDB } from "../constants/firebase";
+import logo from "../images/Navis_deconstructed_transparent.png";
 
 const { Title, Text } = Typography;
 
@@ -76,7 +77,20 @@ class SellerForm extends React.Component {
           margin: "auto"
         }}
       >
-        <Title>Seller Documentation Form</Title>
+        <div style={{ display: "inline-flex" }}>
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              width: "38px",
+              height: "38px",
+              marginTop: "3px",
+              marginRight: "15px"
+            }}
+          />
+          <Title>Navis</Title>
+        </div>
+        <Title level={2}>Seller Documentation Form</Title>
         <Heading claim={claim} />
         <hr />
         <Title level={4} style={{ margin: "20px auto" }}>
