@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Layout, Typography, Menu, Dropdown, Icon } from "antd";
 import TransactionsList from "./TransactionsList";
+import TransactionDetails from "./TransactionDetails";
 
 const { Content, Sider } = Layout;
 const { Title, Text } = Typography;
@@ -8,6 +9,7 @@ const { Title, Text } = Typography;
 const AllTransactions = () => {
   const list = ["latest", "earliest", "claimant name"];
   const [sortCriteria, setSortCriteria] = useState("latest");
+  const [data, changeData] = useState(undefined);
 
   const menu = (
     <Menu
@@ -39,11 +41,15 @@ const AllTransactions = () => {
                 {sortCriteria} {list[sortCriteria]} <Icon type="down" />
               </Text>
             </Dropdown>
-            <TransactionsList sortCriteria={sortCriteria} />
+            <TransactionsList
+              sortCriteria={sortCriteria}
+              onClick={data => changeData(data)}
+            />
           </div>
         </Menu>
       </Sider>
       <Content style={{ padding: "0 24px", height: "540px" }}>
+        {<TransactionDetails data={data} />}
       </Content>
     </Layout>
   );
