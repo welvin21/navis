@@ -15,7 +15,7 @@ const TransactionCard = (props) => {
     const { data } = props;
     return (
         <Card
-        title={`#Claim ${data.id}`}
+        title={`#Transaction ${data.id}`}
         size="default"
         hoverable
         style={style.card}
