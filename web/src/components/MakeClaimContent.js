@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Typography, Form, Input, Button, Checkbox } from "antd";
+import { Redirect } from "react-router-dom";
 // import { FirebaseDB as db } from "../constants/firebase";
 
 const { Title, Text } = Typography;
@@ -8,9 +9,10 @@ const { TextArea } = Input;
 const MakeClaimContent = props => {
   const { data } = props;
   const [form, setForm] = useState({
-    notes: null,
+    notes: "",
     permissions: false
   });
+  const [redirect, setRedirect] = useState(false);
 
   if (data === null) {
     return (
@@ -28,9 +30,11 @@ const MakeClaimContent = props => {
     setForm({ form });
   };
   const handleSubmit = e => {
-    // e.preventDefault();
+    e.preventDefault();
     console.log(form);
+    setRedirect(true);
   };
+  if (redirect) return <Redirect to="/" />;
   return (
     <div>
       <Title level={2}>Claim Application</Title>

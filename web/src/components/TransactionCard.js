@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Timeline, Row, Col, Tag, Typography } from "antd";
 
-const { Title, h1, h2, h3, h4 } = Typography;
+const { Title } = Typography;
 
 const style = {
   container: {
@@ -16,7 +16,7 @@ const style = {
 const TransactionCard = props => {
   const { data, onClickFunction } = props;
   return (
-    <Row>
+    <Row style={{margin : '20px 0'}}>
       <Col span={3} style={{ textAlign: "justify", marginTop: "8px" }}>
         <Title level={3} style={{ lineHeight: "1" }}>
           <b>20</b>
@@ -78,4 +78,5 @@ const TransactionCard = props => {
     </Row>
   );
 };
+
 export default TransactionCard;

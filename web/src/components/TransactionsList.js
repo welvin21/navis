@@ -3,8 +3,8 @@ import TransactionCard from "./TransactionCard";
 import { FirebaseDB as db } from "../constants/firebase";
 
 const TransactionsList = props => {
-  const { onClickFunction } = props;
   const [claims, setClaims] = useState([]);
+  const { onClickFunction } = props;
   useEffect(() => {
     db.collection("claims")
       .get()
@@ -15,7 +15,7 @@ const TransactionsList = props => {
       });
   });
   return (
-    <div style={{ margin: "20px auto" }}>
+    <div style={{ margin: "20px auto", overflowY : 'scroll', height : 600 }}>
       {claims.map(claim => {
         return (
           <TransactionCard
