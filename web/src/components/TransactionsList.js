@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import ClaimCard from './ClaimCard';
+import TransactionCard from './TransactionCard';
 import {FirebaseDB as db} from '../constants/firebase';
 
-const ClaimList = () => {
+const TransactionsList = () => {
   const [claims, setClaims] = useState([]);
   useEffect(() => {
     db.collection('claims').get().then(querySnapshot => {
@@ -16,7 +16,7 @@ const ClaimList = () => {
       {
         claims.map(claim => {
           return(
-            <ClaimCard data={claim}/>
+            <TransactionCard data={claim}/>
           );
         })
       }
@@ -24,4 +24,4 @@ const ClaimList = () => {
   )
 }
 
-export default ClaimList;
+export default TransactionsList;

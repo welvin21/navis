@@ -11,7 +11,7 @@ const style = {
     }
 }
 
-const ClaimCard = (props) => {
+const TransactionCard = (props) => {
     const { data } = props;
     return (
         <Card
@@ -22,8 +22,8 @@ const ClaimCard = (props) => {
         >
             <div style={style.container}>
                 <Timeline>
-                    <Timeline.Item>Hong Kong</Timeline.Item>
-                    <Timeline.Item>United States</Timeline.Item>
+                    <Timeline.Item>{data.placeOfExport}</Timeline.Item>
+                    <Timeline.Item>{data.placeOfImport}</Timeline.Item>
                 </Timeline>
                 <Tag color='magenta' style={{height : 20,width : 'auto'}}>
                     {data.goods}
@@ -54,4 +54,4 @@ const ClaimCard = (props) => {
 
 }
 
-export default ClaimCard;
+export default TransactionCard;
