@@ -27,8 +27,7 @@ const style = {
     gridArea: "stats"
   },
   document: {
-    color: "blue",
-    textDecoration: "underline",
+    color: "rgb(45, 110, 210)",
     cursor: "pointer"
   },
   details: {
