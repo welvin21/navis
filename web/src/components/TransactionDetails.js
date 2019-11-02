@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import { Timeline, Icon, Row, Col } from 'antd';
 import Documents from './Documents';
 import Stats from './Stats';
-import Charts from './Charts';
+// import Charts from './Charts';
 // import { FirebaseStorage as storage } from '../constants/firebase';
 
 const style = {
@@ -71,7 +71,7 @@ const TransactionDetails = (props) => {
                         </Timeline.Item>
                     </Timeline>
                     <Stats style={{gridArea : 'stats'}}/>
-                    <Charts style={{gridArea : 'charts'}}/>
+                    {/* <Charts style={{gridArea : 'charts'}}/> */}
                     
                 </div>
             </div>
