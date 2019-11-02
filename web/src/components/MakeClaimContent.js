@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography, Form, Input, Button, Checkbox } from "antd";
 import { Redirect } from "react-router-dom";
-// import { FirebaseDB as db } from "../constants/firebase";
+import ShipSelect from "./ShipSelect";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
@@ -15,11 +15,7 @@ const MakeClaimContent = props => {
   const [redirect, setRedirect] = useState(false);
 
   if (data === null) {
-    return (
-      <div>
-        <Title level={2}>Please select a transaction.</Title>
-      </div>
-    );
+    return <ShipSelect text="Select a transaction." />;
   }
   const handleTextChange = e => {
     form.notes = e.target.value;
