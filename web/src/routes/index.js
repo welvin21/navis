@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import React from "react";
 import AppBar from "../components/AppBar";
-import claimTypes from '../components/claimTypes'
 import AllTransactions from "../components/AllTransactions";
+import MakeClaim from "../components/MakeClaim";
 
 class Index extends React.Component {
   render() {
@@ -10,10 +10,8 @@ class Index extends React.Component {
       <BrowserRouter>
         <Switch>
           <AppBar>
-
-              <Route exact path="/" component={AllTransactions} />
-              <Route exact path="/claimTypes" component={claimTypes} />
-            
+            <Route exact path="/" component={AllTransactions} />
+            <Route exact path="/makeClaim" component={MakeClaim} />
           </AppBar>
         </Switch>
       </BrowserRouter>
