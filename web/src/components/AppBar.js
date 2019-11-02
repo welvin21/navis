@@ -22,7 +22,7 @@ class AppBar extends React.Component {
 
   render() {
     return (
-      <Layout style={{ minHeight: "100vh", height: '100%' }}>
+      <Layout style={{ height: '100vh' }}>
         <Sider
           collapsible
           collapsed={this.state.collapsed}

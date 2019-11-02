@@ -15,7 +15,7 @@ const TransactionsList = props => {
       });
   });
   return (
-    <div style={{ margin: "20px auto", overflowY : 'scroll', height : 600 }}>
+    <div style={{ margin: "20px auto", overflowY : 'scroll', height : '100vh' }}>
       {claims.map(claim => {
         return (
           <TransactionCard
