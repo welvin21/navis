@@ -24,7 +24,11 @@ class AppBar extends React.Component {
           onCollapse={this.onCollapse}
         >
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={[this.props.location.pathname,]} mode="inline">
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={[this.props.location.pathname]}
+            mode="inline"
+          >
             <Menu.Item key="/">
               <Icon type="pie-chart" />
               <span>All Transactions</span>
@@ -39,11 +43,6 @@ class AppBar extends React.Component {
               <Icon type="notification" />
               <span>Notifications</span>
               <Link to="/notifications"></Link>
-            </Menu.Item>
-            <Menu.Item key="/openSellerForm">
-              <Icon type="mail"/>
-              <span>Open Seller Form</span>
-              <Link to="/openSellerForm"></Link>
             </Menu.Item>
           </Menu>
         </Sider>
