@@ -12,13 +12,14 @@ const style = {
 }
 
 const TransactionCard = (props) => {
-    const { data } = props;
+    const { data,onClick } = props;
     return (
         <Card
-        title={`#Transaction ${data.id}`}
-        size="default"
-        hoverable
-        style={style.card}
+            title={`#Transaction ${data.id}`}
+            size="default"
+            hoverable
+            style={style.card}
+            onClick={()=>onClick()}
         >
             <div style={style.container}>
                 <Timeline>
