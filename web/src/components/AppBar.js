@@ -32,8 +32,8 @@ class AppBar extends React.Component {
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="desktop" />
-              <span>Make Claim</span>
-              <Link to="/claimTypes"></Link>
+              <span>Make a Claim</span>
+              <Link to="/makeClaim"></Link>
             </Menu.Item>
           </Menu>
         </Sider>
