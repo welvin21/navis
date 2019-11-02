@@ -44,15 +44,15 @@ const Documents = (props) => {
     const [data, setData] = useState();
     const [preview, setPreview] = useState(false);
 
-    if (!data) {
-        db.collection('documents').doc(docId).get().then(doc => {
-            if (!doc.exists) {
-                console.log('ERROR')
-            } else {
-                setData(doc.data())
-            }
-        })
-    }
+    let doc = db.collection("documents");
+    let observer = doc.onSnapshot(querySnapshot => {
+        querySnapshot.forEach(doc => {
+        if (!data) {
+            console.log(doc.data());
+            setData(doc.data());
+        }
+        });
+    })
 
     return (
         <div>

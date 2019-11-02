@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Timeline, Icon, Row, Col, Typography } from "antd";
 import Documents from "./Documents";
 import Stats from "./Stats";
 import Charts from "./Charts";
 import ShipSelect from "./ShipSelect";
+import { FirebaseDB as db } from "../constants/firebase";
 // import { FirebaseStorage as storage } from '../constants/firebase';
 
 const { Title } = Typography;
@@ -48,6 +49,22 @@ const style = {
 };
 
 const TransactionDetails = props => {
+  const [hasUploaded, setHasUploaded] = useState(false);
+  const [docs, setDocs] = useState({});
+  const [progress, setProgress] = useState(74);
+
+  let doc = db.collection("documents");
+  let observer = doc.onSnapshot(querySnapshot => {
+    querySnapshot.forEach(doc => {
+      if (!hasUploaded) {
+        console.log(doc.data());
+        setDocs(doc.data());
+        setHasUploaded(true);
+        setProgress(90);
+      }
+    });
+  })
+
   const { data } = props;
   const [visible, onModalClick] = useState(false);
   if (data === undefined) {
@@ -63,6 +80,21 @@ const TransactionDetails = props => {
         />
         <div style={style.details}>
           <Timeline style={style.timeline}>
+            {
+              hasUploaded ? 
+                <Timeline.Item
+                dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                >
+                3 November 2019
+                <br />
+                {`${data.buyerName} confirmed sale contract`}
+                <br />
+                <p onClick={() => onModalClick(true)} style={style.document}>
+                  documents
+                </p>
+              </Timeline.Item> :
+                null
+            }
             <Timeline.Item
               dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
             >
@@ -145,7 +177,7 @@ const TransactionDetails = props => {
           <div style={style.charts}>
             <h2>Transaction progress</h2>
             <br />
-            <Charts progress={82} />
+            <Charts progress={progress} />
           </div>
         </div>
       </div>
