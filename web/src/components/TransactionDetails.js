@@ -28,6 +28,7 @@ const style = {
     document : {
         color : 'blue',
         textDecoration : 'underline',
+        cursor : 'pointer'
     },
     details : {
         display : 'grid',
@@ -55,7 +56,11 @@ const TransactionDetails = (props) => {
     }else{
         return(
             <div>
-                <Documents visible={visible} onModalClick={visible=>onModalClick(visible)}/>
+                <Documents 
+                    visible={visible} 
+                    onModalClick={visible=>onModalClick(visible)}
+                    docId={data.documentId}
+                />
                 <div style={style.details}>
                     <Timeline style={style.timeline}>
                         <Timeline.Item dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}>
