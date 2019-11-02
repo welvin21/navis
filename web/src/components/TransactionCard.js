@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Timeline, Row, Col, Tag, Typography } from "antd";
 
-const { Title, h1, h2, h3, h4 } = Typography;
+const { Title } = Typography;
 
 const style = {
   container: {

@@ -28,7 +28,7 @@ class AppBar extends React.Component {
             <Menu.Item key="1">
               <Icon type="pie-chart" />
               <span>All Transactions</span>
-              <Link to="/"></Link>
+              <Link to="/allTransactions"></Link>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="desktop" />
@@ -36,7 +36,7 @@ class AppBar extends React.Component {
               <Link to="/makeClaim"></Link>
             </Menu.Item>
             <Menu.Item key="3">
-              <Icon type="mail"/>
+              <Icon type="mail" />
               <span>Open Seller Form</span>
               <Link to="/openSellerForm"></Link>
             </Menu.Item>

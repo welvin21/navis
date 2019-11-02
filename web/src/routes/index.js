@@ -12,8 +12,9 @@ class Index extends React.Component {
         <Switch>
           <AppBar>
             <Route exact path="/" component={AllTransactions} />
+            <Route exact path="/allTransactions" component={AllTransactions} />
             <Route exact path="/makeClaim" component={MakeClaim} />
-            <Route exact path="/openSellerForm" component={SellerForm}/>
+            <Route exact path="/openSellerForm" component={SellerForm} />
           </AppBar>
         </Switch>
       </BrowserRouter>
