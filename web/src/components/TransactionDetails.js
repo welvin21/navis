@@ -3,6 +3,7 @@ import { Timeline, Icon, Row, Col, Typography } from 'antd';
 import Documents from './Documents';
 import Stats from './Stats';
 import Charts from './Charts';
+import ShipSelect from "./ShipSelect";
 // import { FirebaseStorage as storage } from '../constants/firebase';
 
 const { Title } = Typography;
@@ -50,7 +51,7 @@ const TransactionDetails = (props) => {
     const { data } = props;
     const [visible,onModalClick] = useState(false);
     if(data === undefined){
-        return (<div><Title level={2}>Please select a transaction.</Title></div>);
+        return (<ShipSelect text="Select a transaction." />);
     }else{
         return(
             <div>
