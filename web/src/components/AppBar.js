@@ -36,6 +36,10 @@ class AppBar extends React.Component {
               <Link to="/makeClaim"></Link>
             </Menu.Item>
             <Menu.Item key="3">
+              <Icon type="notification" />
+              <span>Notifications</span>
+              <Link to="/notifications"></Link>
+
               <Icon type="mail"/>
               <span>Open Seller Form</span>
               <Link to="/openSellerForm"></Link>

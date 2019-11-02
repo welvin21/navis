@@ -3,6 +3,8 @@ import React from "react";
 import AppBar from "../components/AppBar";
 import AllTransactions from "../components/AllTransactions";
 import MakeClaim from "../components/MakeClaim";
+import Notifications from "../components/Notifications";
+
 import SellerForm from "../forms/SellerForm.js";
 
 class Index extends React.Component {
@@ -13,6 +15,7 @@ class Index extends React.Component {
           <AppBar>
             <Route exact path="/" component={AllTransactions} />
             <Route exact path="/makeClaim" component={MakeClaim} />
+            <Route exact path="/notifications" component={Notifications} />
             <Route exact path="/openSellerForm" component={SellerForm}/>
           </AppBar>
         </Switch>

@@ -44,9 +44,6 @@ const AllTransactions = () => {
         </Menu>
       </Sider>
       <Content style={{ padding: "0 24px", height: "540px" }}>
-        {
-          // right content
-        }
       </Content>
     </Layout>
   );
