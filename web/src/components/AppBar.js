@@ -4,8 +4,7 @@ import { Layout, Menu, Icon } from "antd";
 //import { FirebaseDB } from "../constants/firebase";
 import { Link } from 'react-router-dom';
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
 
 class AppBar extends React.Component {
   state = {

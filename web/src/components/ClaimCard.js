@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import { Card, Timeline, Row, Col, Tag } from "antd";
 
 const style = {
