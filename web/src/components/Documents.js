@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, List, Tag } from 'antd';
+import { Modal, List, Tag, Button } from 'antd';
 import { FirebaseDB as db } from "../constants/firebase";
 
 
@@ -18,12 +18,15 @@ const PreviewPopup = (label, url) => {
     Modal.info({
         title: `${label.replace('_', " ")}`,
         width: '1000px',
+        cancelText: 'X',
         content: (
             <div>
                 <img src={url} style={{ maxWidth: '800px' }} />
+                <br />
+                <Button ><a href={url}>Download</a></Button>
             </div>
         ),
-        onOk() { },
+        onOk() { }
     });
 }
 const DocumentItem = ({ label, data }) => {
