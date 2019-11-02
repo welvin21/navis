@@ -27,7 +27,7 @@ class AppBar extends React.Component {
           <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
             <Menu.Item key="1">
               <Icon type="pie-chart" />
-              <span>All Claims</span>
+              <span>All Transactions</span>
               <Link to="/"></Link>
             </Menu.Item>
             <Menu.Item key="2">
