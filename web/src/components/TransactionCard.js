@@ -39,7 +39,7 @@ const TransactionCard = props => {
               <Timeline.Item>{data.placeOfExport}</Timeline.Item>
               <Timeline.Item>{data.placeOfImport}</Timeline.Item>
             </Timeline>
-            <Tag color="magenta" style={{ height: 20, width: "auto" }}>
+            <Tag color="magenta" style={{ height: 20 }}>
               {data.goods}
             </Tag>
           </div>

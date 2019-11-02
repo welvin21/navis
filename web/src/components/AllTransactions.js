@@ -41,7 +41,7 @@ const AllTransactions = () => {
             <Title>All Transactions</Title>
             <Text>sorted by </Text>
             <Dropdown overlay={menu}>
-              <Text style={{ color: "blue" }}>
+              <Text style={{ color: "rgb(45, 110, 210)" }}>
                 {sortCriteria} <Icon type="down" />
               </Text>
             </Dropdown>
