@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import logo from '../images/Navis_icon_transparent.png'
 
 const { Header, Content, Sider } = Layout;
-const {Title, Text} = Typography;
+const { Title, Text } = Typography;
 
 
 class AppBar extends React.Component {
@@ -14,13 +14,15 @@ class AppBar extends React.Component {
     collapsed: false
   };
 
+
+
   onCollapse = collapsed => {
     this.setState({ collapsed });
   };
 
   render() {
     return (
-      <Layout style={{ minHeight: "100vh" }}>
+      <Layout style={{ minHeight: "100vh", height: '100%' }}>
         <Sider
           collapsible
           collapsed={this.state.collapsed}
@@ -32,10 +34,10 @@ class AppBar extends React.Component {
             mode="inline"
           >
 
-            <div style={{textAlign: 'center', width: '90%', margin: '8px', marginRight: '24px', marginTop: '24px' }}>
-            <img src={logo} alt='logo' style={{ width: '70px', height: '70px' }}/>
+            <div style={{textAlign: 'center', width: '90%', marginLeft: '8px', marginTop: '24px' }}>
+            <img src={logo} alt='logo' style={{ width: '60px', height: '60px' }}/>
             <div>
-            <Title style={{color: 'white'}}>Navis</Title>
+            <Title style={{color: 'white'}}>{ (this.state.collapsed) ? '' : 'Navis' }</Title>
             </div>
             </div>
             <Menu.Item key="/">

@@ -36,7 +36,9 @@ const NotificationDisplay = (props) => {
                   <Form.Item label="Additional Notes">
                     <TextArea rows={4} />
                   </Form.Item>
+                  <div style={{ textAlign: 'right' }}>
                   <Button type="primary" onClick={()=>{onClick()}}>Submit</Button>
+                  </div>
                 </Form>
               </div>
             ) : (<ShipSelect text="Select a notification." />)}

@@ -50,9 +50,11 @@ const MakeClaimContent = props => {
         >
           Allow HKECIC to see all documents related to transaction
         </Checkbox>
+        <div style={{ textAlign: 'right' }}>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
+        </div>
       </Form>
     </div>
   );
