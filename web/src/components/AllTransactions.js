@@ -7,9 +7,13 @@ const { Content, Sider } = Layout;
 const { Title, Text } = Typography;
 
 const AllTransactions = () => {
-  const list = ["latest", "earliest", "claimant name"];
+  const list = ["latest", "earliest", "amount"];
   const [sortCriteria, setSortCriteria] = useState("latest");
   const [data, changeData] = useState(undefined);
+
+  const onClickFunction = data => {
+    changeData(data);
+  };
 
   const menu = (
     <Menu
@@ -38,12 +42,12 @@ const AllTransactions = () => {
             <Text>sorted by </Text>
             <Dropdown overlay={menu}>
               <Text style={{ color: "blue" }}>
-                {sortCriteria} {list[sortCriteria]} <Icon type="down" />
+                {sortCriteria} <Icon type="down" />
               </Text>
             </Dropdown>
             <TransactionsList
               sortCriteria={sortCriteria}
-              onClick={data => changeData(data)}
+              onClickFunction={onClickFunction}
             />
           </div>
         </Menu>
