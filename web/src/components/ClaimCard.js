@@ -1,37 +1,37 @@
-import React from 'react';
-import { Layout, Menu, Breadcrumb, Icon, Card } from "antd";
-//import { FirebaseDB } from "../constants/firebase";
+import React,{ useState } from 'react';
+import { Card, Timeline, Row, Col } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
-
-const styleFooter = {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: 'skyblue',
-    textAlign: 'right',
+const style = {
+    card : {
+        border : 10
+    }
 }
 
-class ClaimCard extends React.Component {
-    
-    render() {
-        return (
-            <Card
-            title={ 'Claim #' + this.props.id + ' ' + this.props.title }
-            size="default"
-            hoverable
-            style={{ margin:'16px'}}
-            onClick={this.props.onClick}
-            >
-                <content>
-                    { this.props.content }
-                </content>
-                <footer style={styleFooter}>
-                    { this.props.date }
-                </footer>
-            </Card>
-        );
-    }
+const ClaimCard = (props) => {
+    const { data } = props;
+    return (
+        <Card
+        title={`#Claim ${data.id}`}
+        size="default"
+        hoverable
+        style={style.card}
+        >
+            <Timeline>
+                <Timeline.Item>Hong Kong</Timeline.Item>
+                <Timeline.Item>United States</Timeline.Item>
+            </Timeline>
+
+            <Row>
+                <Col span={5}>Seller</Col>
+                <Col span={2}>{data.sellerName}</Col>
+            </Row>
+            <Row>
+                <Col span={5}>Buyer</Col>
+                <Col span={2}>{data.buyerName}</Col>
+            </Row>           
+        </Card>
+    );
+
 }
 
 export default ClaimCard;
