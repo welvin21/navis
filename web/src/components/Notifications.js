@@ -65,7 +65,7 @@ const Notifications = () => {
           </div>
         </Menu>
       </Sider>
-      <Content style={{ padding: "0 24px", height: "540px" }}>
+      <Content style={{ padding: "0 24px", height: "100vh" }}>
         <NotificationDisplay 
           isLoaded={notificationDisplay} 
           data={{title : 'ID #ZwoFpRiRiL', docs : ["invoice", "bill of lading"]}} 
