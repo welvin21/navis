@@ -55,6 +55,11 @@ class AppBar extends React.Component {
               <span>Notifications</span>
               <Link to="/notifications"></Link>
             </Menu.Item>
+            <Menu.Item key="/analytics">
+              <Icon type="bar-chart" />
+              <span>Analytics dashboard</span>
+              <Link to="/analytics"></Link>
+            </Menu.Item>
           </Menu>
         </Sider>
         {
