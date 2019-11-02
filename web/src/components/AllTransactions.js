@@ -24,7 +24,7 @@ const AllTransactions = () => {
   );
   return (
     <Layout style={{ padding: "24px 0", background: "#fff" }}>
-      <Sider width={400} style={{ background: "#fff" }}>
+      <Sider width={550} style={{ background: "#fff" }}>
         <Menu
           mode="inline"
           defaultSelectedKeys={["1"]}
