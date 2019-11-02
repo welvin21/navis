@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { Typography, Form, Input, Button, Checkbox } from "antd";
+import { Typography, Form, Input, Button, Checkbox, message } from "antd";
 import { Redirect } from "react-router-dom";
 import ShipSelect from "./ShipSelect";
 
 const { Title, Text } = Typography;
 const { TextArea } = Input;
+
+const success = () => {
+  message
+    .loading('Submitting claim...', 3)
+    .then(() => message.success('Claim submitted successfully', 3));
+};
 
 const MakeClaimContent = props => {
   const { data } = props;
@@ -51,7 +57,7 @@ const MakeClaimContent = props => {
           Allow HKECIC to see all documents related to transaction
         </Checkbox>
         <div style={{ textAlign: 'right' }}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" onClick={()=>success()}>
           Submit
         </Button>
         </div>
