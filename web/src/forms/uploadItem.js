@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import { Form, Upload, Icon, message } from "antd";
+import { Form, Upload, Icon, message, Typography } from "antd";
+
+const { Text } = Typography;
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -54,26 +56,37 @@ class UploadItem extends Component {
     const { imageUrl } = this.state;
 
     return (
-      <Form.Item label={docType}>
-        <Upload
-          name="avatar"
-          listType="picture-card"
-          className="avatar-uploader"
-          showUploadList={false}
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-          beforeUpload={beforeUpload}
-          onChange={this.handleChange}
+      <div>
+        <Form.Item>
+          <Upload
+            name="avatar"
+            listType="picture-card"
+            className="avatar-uploader"
+            showUploadList={false}
+            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            beforeUpload={beforeUpload}
+            onChange={this.handleChange}
+          >
+            {imageUrl ? (
+              <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
+            ) : (
+              uploadButton
+            )}
+            {
+              //imageUrl ? console.log(imageUrl) : console.log("nopes")
+            }
+          </Upload>
+        </Form.Item>
+        <Text
+          style={{
+            justifyContent: "center",
+            position: "relative",
+            top: "-32px"
+          }}
         >
-          {imageUrl ? (
-            <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
-          ) : (
-            uploadButton
-          )}
-          {
-            //imageUrl ? console.log(imageUrl) : console.log("nopes")
-          }
-        </Upload>
-      </Form.Item>
+          {docType}
+        </Text>
+      </div>
     );
   }
 }
