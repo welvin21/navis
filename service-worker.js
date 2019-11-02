@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/navis/precache-manifest.3a5d841c99012a2aec5ce1d5564de942.js"
+  "/navis/precache-manifest.bb265d5ce4b91a21ad8801cc8c833af3.js"
 );
 
 self.addEventListener('message', (event) => {

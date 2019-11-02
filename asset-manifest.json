@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/navis/static/css/main.34de6062.chunk.css",
-    "main.js": "/navis/static/js/main.7bd9742e.chunk.js",
-    "main.js.map": "/navis/static/js/main.7bd9742e.chunk.js.map",
+    "main.js": "/navis/static/js/main.f9125e60.chunk.js",
+    "main.js.map": "/navis/static/js/main.f9125e60.chunk.js.map",
     "runtime-main.js": "/navis/static/js/runtime-main.2a650690.js",
     "runtime-main.js.map": "/navis/static/js/runtime-main.2a650690.js.map",
     "static/css/2.65d0fb34.chunk.css": "/navis/static/css/2.65d0fb34.chunk.css",
-    "static/js/2.3be2e892.chunk.js": "/navis/static/js/2.3be2e892.chunk.js",
-    "static/js/2.3be2e892.chunk.js.map": "/navis/static/js/2.3be2e892.chunk.js.map",
+    "static/js/2.61a79ec5.chunk.js": "/navis/static/js/2.61a79ec5.chunk.js",
+    "static/js/2.61a79ec5.chunk.js.map": "/navis/static/js/2.61a79ec5.chunk.js.map",
     "index.html": "/navis/index.html",
-    "precache-manifest.3a5d841c99012a2aec5ce1d5564de942.js": "/navis/precache-manifest.3a5d841c99012a2aec5ce1d5564de942.js",
+    "precache-manifest.bb265d5ce4b91a21ad8801cc8c833af3.js": "/navis/precache-manifest.bb265d5ce4b91a21ad8801cc8c833af3.js",
     "service-worker.js": "/navis/service-worker.js",
     "static/css/2.65d0fb34.chunk.css.map": "/navis/static/css/2.65d0fb34.chunk.css.map",
     "static/css/main.34de6062.chunk.css.map": "/navis/static/css/main.34de6062.chunk.css.map"
@@ -17,8 +17,8 @@
   "entrypoints": [
     "static/js/runtime-main.2a650690.js",
     "static/css/2.65d0fb34.chunk.css",
-    "static/js/2.3be2e892.chunk.js",
+    "static/js/2.61a79ec5.chunk.js",
     "static/css/main.34de6062.chunk.css",
-    "static/js/main.7bd9742e.chunk.js"
+    "static/js/main.f9125e60.chunk.js"
   ]
 }
