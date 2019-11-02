@@ -1,10 +1,13 @@
 import React from "react";
 import "antd/dist/antd.css";
-import { Layout, Menu, Icon } from "antd";
+import { Layout, Menu, Icon, Typography } from "antd";
 //import { FirebaseDB } from "../constants/firebase";
 import { Link } from "react-router-dom";
+import logo from '../images/Navis_icon_transparent.png'
 
 const { Header, Content, Sider } = Layout;
+const {Title, Text} = Typography;
+
 
 class AppBar extends React.Component {
   state = {
@@ -23,12 +26,18 @@ class AppBar extends React.Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="logo" />
           <Menu
             theme="dark"
             defaultSelectedKeys={[this.props.location.pathname]}
             mode="inline"
           >
+
+            <div style={{textAlign: 'center', width: '90%', margin: '8px', marginRight: '24px', marginTop: '24px' }}>
+            <img src={logo} alt='logo' style={{ width: '70px', height: '70px' }}/>
+            <div>
+            <Title style={{color: 'white'}}>Navis</Title>
+            </div>
+            </div>
             <Menu.Item key="/">
               <Icon type="pie-chart" />
               <span>All Transactions</span>
@@ -50,7 +59,6 @@ class AppBar extends React.Component {
           //content on the right
         }
         <Layout>
-          <Header style={{ background: "#fff", padding: 0 }} />
           <Content style={{ padding: "0 20px", marginTop: "20px" }}>
             {this.props.children}
           </Content>
