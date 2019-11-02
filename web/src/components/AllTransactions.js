@@ -32,7 +32,7 @@ const AllTransactions = () => {
           style={{ height: "100%" }}
         >
           <div style={{ margin: "auto 20px" }}>
-            <Title>All Claims</Title>
+            <Title>All Transactions</Title>
             <Text>sorted by </Text>
             <Dropdown overlay={menu}>
               <Text style={{ color: "blue" }}>
