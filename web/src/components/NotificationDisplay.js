@@ -48,7 +48,7 @@ const NotificationDisplay = (props) => {
   } else {
     return (
       <div style={{ margin: "auto", textAlign: "center", padding: "30px" }}>
-        <Icon type="check-circle" size='large' />
+        <Icon type="check-circle" style={{ fontSize: 200, color: "green", marginBottom: 20 }} />
         <Title level={3}>A new claim has been made.</Title>
       </div>
     )
