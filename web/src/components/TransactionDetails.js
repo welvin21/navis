@@ -67,6 +67,8 @@ const TransactionDetails = props => {
     console.log(docs)
     const { data } = props;
     const [visible, onModalClick] = useState(false);
+
+
     if (data === undefined) {
         return <ShipSelect text="Select a transaction." />;
     } else {
@@ -95,83 +97,112 @@ const TransactionDetails = props => {
                                 </Timeline.Item> :
                                 null
                         }
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.sellerSendDeliverables}
-                            <br />
-                            {`${data.sellerName} send goods to shipping company`}
-                            <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
-              </p>
-                        </Timeline.Item>
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.buyerConfirmContracts}
-                            <br />
-                            {`${data.buyerName} confirms contracts and documents`}
-                            <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
-              </p>
-                        </Timeline.Item>
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.bankPurchaseReceivables}
-                            <br />
-                            Purchased debt
+                        {
+                            data.paymentDate.slice(data.paymentDate.length - 4) !== '2020' ?
+                                <Timeline.Item
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.paymentDate}
+                                    <br />
+                                    Payment Date
               <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
               </p>
-                        </Timeline.Item>
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.shipmentDate}
-                            <br />
-                            Shipment date
+                                </Timeline.Item> : null
+                        }
+                        {
+                            data.paymentDueDate.slice(data.paymentDueDate.length - 4) !== '2020' ?
+                                <Timeline.Item
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.paymentDueDate}
+                                    <br />
+                                    Payment Due Date
               <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
               </p>
-                        </Timeline.Item>
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.goodsReceived}
-                            <br />
-                            Scheduled Goods arrived
+                                </Timeline.Item> : null
+                        }
+                        {
+                            data.goodsReceived.slice(data.goodsReceived.length - 4) !== '2020' && data.goodsReceived[3] !== 'D' ?
+                                <Timeline.Item
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.goodsReceived}
+                                    <br />
+                                    Scheduled Goods arrived
               <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
               </p>
-                        </Timeline.Item>
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.paymentDueDate}
-                            <br />
-                            Payment Due Date
+                                </Timeline.Item> : null
+                        }
+                        {
+                            data.shipmentDate.slice(data.shipmentDate.length - 4) !== '2020' && data.shipmentDate[3] !== 'N' ?
+                                <Timeline.Item
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.shipmentDate}
+                                    <br />
+                                    Shipment date
               <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
               </p>
-                        </Timeline.Item>
-                        <Timeline.Item
-                            dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
-                        >
-                            {data.paymentDate}
-                            <br />
-                            Payment Date
+                                </Timeline.Item> : null
+                        }
+                        {
+                            data.bankPurchaseReceivables.slice(data.bankPurchaseReceivables.length - 4) !== '2020' ?
+                                <Timeline.Item
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.bankPurchaseReceivables}
+                                    <br />
+                                    Purchased debt
               <br />
-                            <p onClick={() => onModalClick(true)} style={style.document}>
-                                documents
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
               </p>
-                        </Timeline.Item>
+                                </Timeline.Item> : null
+                        }
+                        {
+                            data.buyerConfirmContracts.slice(data.buyerConfirmContracts.length - 4) !== '2020' ?
+                                <Timeline.Item
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.buyerConfirmContracts}
+                                    <br />
+                                    {`${data.buyerName} confirms contracts and documents`}
+                                    <br />
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
+              </p>
+                                </Timeline.Item> : null
+                        }
+                        {
+                            data.sellerSendDeliverables.slice(data.sellerSendDeliverables.length - 4) !== '2020' ?
+                                <Timeline.Item
+
+                                    dot={<Icon type="clock-circle-o" style={{ fontSize: "16px" }} />}
+                                >
+                                    {data.sellerSendDeliverables}
+                                    <br />
+                                    {`${data.sellerName} send goods to shipping company`}
+                                    <br />
+                                    <p onClick={() => onModalClick(true)} style={style.document}>
+                                        documents
+              </p>
+                                </Timeline.Item> : null
+                        }
+
+
+
+
+
+
+
                     </Timeline>
                     <Stats style={{ gridArea: "stats" }} />
                     <div style={style.charts}>
