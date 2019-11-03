@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Form, Button, AutoComplete, Typography } from "antd";
+import { Form, Button, AutoComplete, Typography, message } from "antd";
 import UploadItem from "./uploadItem";
 import { uploadFile } from "../storage/uploadFile";
 import { FirebaseDB } from "../constants/firebase";
@@ -52,6 +52,12 @@ class SellerForm extends React.Component {
     }
     //uploadFile(this.state.imageUrl);
   };
+  success = () => {
+    message
+      .loading("Uploading documents...", 1.5)
+      .then(() => message.success("Documents submitted successfully", 1));
+  };
+
   componentDidMount() {
     FirebaseDB.collection("claims")
       .get()
@@ -116,7 +122,12 @@ class SellerForm extends React.Component {
             />
             <UploadItem docType="Bank Advice" appendList={this.appendList} />
           </div>
-          <Button type="primary" htmlType="submit" style={{ float: "right" }}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ float: "right" }}
+            onClick={this.success}
+          >
             Submit
           </Button>
         </Form>
