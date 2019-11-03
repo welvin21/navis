@@ -30,7 +30,7 @@ const PreviewPopup = (label, url) => {
         </Button>
       </div>
     ),
-    onOk() {}
+    onOk() { }
   });
 };
 const DocumentItem = ({ label, data }) => {
@@ -54,8 +54,9 @@ const Documents = props => {
   let observer = doc.onSnapshot(querySnapshot => {
     querySnapshot.forEach(doc => {
       if (!data) {
-        console.log(doc.data());
-        setData(doc.data());
+        let temp = doc.data();
+        delete (temp.authorized)
+        setData(temp);
       }
     });
   });
@@ -80,8 +81,8 @@ const Documents = props => {
               );
             })
           ) : (
-            <div />
-          )}
+              <div />
+            )}
         </List>
       </Modal>
     </div>
