@@ -8,8 +8,8 @@ const { TextArea } = Input;
 
 const success = () => {
   message
-    .loading('Submitting claim...', 3)
-    .then(() => message.success('Claim submitted successfully', 3));
+    .loading("Submitting claim...", 1.5)
+    .then(() => message.success("Claim submitted successfully", 1.5));
 };
 
 const MakeClaimContent = props => {
@@ -49,17 +49,11 @@ const MakeClaimContent = props => {
           placeholder="instructions and information pertaining to the claim"
           onChange={handleTextChange}
         />
-        <Text>Data Permissions</Text>
-        <Checkbox
-          style={{ display: "block", margin: "10px auto" }}
-          onChange={handleCheckboxChange}
-        >
-          Allow HKECIC to see all documents related to transaction
-        </Checkbox>
-        <div style={{ textAlign: 'right' }}>
-        <Button type="primary" onClick={()=>success()}>
-          Submit
-        </Button>
+
+        <div style={{ textAlign: "right", marginTop: "20px" }}>
+          <Button type="primary" onClick={() => success()}>
+            Submit
+          </Button>
         </div>
       </Form>
     </div>
