@@ -16,9 +16,10 @@ Table of node dependencies
 | gh-pages                | 2.1.1   | MIT        |
 | react                   | 16.11.0 | MIT        |
 | react-dom               | 16.11.0 | MIT        |
-| react-minimal-pie-chart | MIT     |
+| react-minimal-pie-chart | 5.0.2   | MIT        |
 | react-router-dom        | 5.1.2   | MIT        |
 | react-scripts           | 3.2.0   | MIT        |
+| recharts                | 1.8.5   | MIT        |
 
 Table of external software used
 
