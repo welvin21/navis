@@ -6,21 +6,17 @@ app.get('/', (req, res) => {
     res.send("server running");
 })
 
-app.get('/files', (req, res) => {
-    let files = {};
-    db.collection("documents")
-        .get()
-        .then(querySnapshot => {
-            console.log(querySnapshot);
-            querySnapshot.forEach(doc => {
-                if (doc.data().authorized) {
-                    files = doc.data();
-                }
-                else {
-                    res.send("not authorized!");
-                }
-            }).then(res.send(files));
-        })
+app.get('/files', async (req, res) => {
+    const querySnapshot = await db.collection("documents").get();
+    let resp = null;
+    querySnapshot.forEach(doc => {
+        if(doc.data().authorized){
+            resp = doc.data();
+        } else {
+            resp = "not authorized";
+        }
+    });
+    res.send(resp);
 });
 
 app.listen(8000, () => {console.log("listening on port " + 8000)});
