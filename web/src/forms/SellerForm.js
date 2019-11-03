@@ -15,7 +15,7 @@ const Heading = props => {
   }
   return (
     <div style={{ margin: "20px 10px 30px 10px" }}>
-      <Text strong>#Transaction {claim.documentId}</Text>
+      <Text strong>#Transaction {claim.id}</Text>
       <br />
       <Text>Seller: {claim.sellerName}</Text>
       <br />
