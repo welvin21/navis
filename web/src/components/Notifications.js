@@ -36,12 +36,13 @@ const openNotification = () => {
       'Thank you for submitting the requested documents. We will get back to you shortly',
     btn,
     key,
-    onClose: ()=>{},
+    onClose: () => { },
   });
 };
 
 const Notifications = () => {
   const [notificationDisplay, setNotificationDisplay] = useState(false);
+  const [isReceived, setReceived] = useState(false);
   const [isUrgent, setUrgent] = useState(true);
   return (
     <Layout style={{ padding: "24px 0", background: "#fff" }}>
@@ -54,23 +55,49 @@ const Notifications = () => {
         >
           <div style={{ margin: "auto 20px" }}>
             <Title>Notifications</Title>
+            <h3 style={{ marginBottom: 20 }}>Bank</h3>
             <NotificationCard
+              receiver="Bank"
               title="ID #ZwoFpRiRiL"
               docs={["invoice", "bill of lading"]}
               onClick={() => {
                 setNotificationDisplay(true);
+                setReceived(false);
               }}
               isUrgent={isUrgent}
+            />
+            <h3 style={{ marginBottom: 20 }}></h3>
+            <NotificationCard
+              receiver="Bank"
+              title="ID #VIz0GphJ9d"
+              docs={["sale of contract", "bill of lading"]}
+              onClick={() => {
+                setNotificationDisplay(true);
+                setReceived(false);
+              }}
+              isUrgent={false}
+            />
+            <h3 style={{ marginBottom: 30 }}></h3>
+            <h3 style={{ marginBottom: 20 }}>HKECIC</h3>
+            <NotificationCard
+              receiver="HKECIC"
+              title="ID #ZwoFpRiRiL"
+              docs={[]}
+              onClick={() => {
+                setReceived(true);
+              }}
+              isUrgent={false}
             />
           </div>
         </Menu>
       </Sider>
       <Content style={{ padding: "0 24px", height: "100vh" }}>
-        <NotificationDisplay 
-          isLoaded={notificationDisplay} 
-          data={{title : 'ID #ZwoFpRiRiL', docs : ["invoice", "bill of lading"]}} 
+        <NotificationDisplay
+          isReceived={isReceived}
+          isLoaded={notificationDisplay}
+          data={{ title: 'ID #ZwoFpRiRiL', docs: ["invoice", "bill of lading"] }}
           isUrgent={isUrgent}
-          onClick={()=>{
+          onClick={() => {
             setUrgent(false);
             openNotification();
           }}
